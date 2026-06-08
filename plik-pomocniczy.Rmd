@@ -1,0 +1,131 @@
+Wczytaj pakiety
+
+```{r}
+library(devtools)
+library(usethis)
+library(roxygen2)
+library(testthat)
+```
+
+Utwórz przykładowy zbiór danych
+
+```{r}
+set.seed(1234)
+
+example_data <- 
+  data.frame(
+    norm = rnorm(100),
+    t = rt(100, df = 1),
+    chisq = rchisq(100, 1)
+  )
+
+head(example_data)
+```
+
+Napisz funkcję do wykrywania wartości odstających za pomocą reguły k sigm
+
+```{r}
+out_detect_sigma <- function(x, k = 3) {
+  
+  avg <- mean(x)
+  s <- sd(x)
+  
+  x[(x < avg - k*s) | (x > avg + k*s)]
+}
+```
+
+```{r}
+out_detect_sigma(example_data$norm, k = 3)
+out_detect_sigma(example_data$t, k = 3)
+out_detect_sigma(example_data$chisq, k = 3)
+```
+
+Dodaj do pakietu utworzoną funkcję
+
+```{r}
+dump("out_detect_sigma", "R/out_detect_sigma.R")
+```
+
+Dodaj do pakietu przykładowe dane
+
+```{r}
+usethis::use_data(example_data, overwrite = TRUE)
+```
+
+Edytu plik out_detect_sigma.R celem dodania opisu funkcji zgodnie z notacją pakietu roxygen2
+
+```{r}
+
+```
+
+
+Zastosuj funkcję roxygenise() celeme dodania pliku z pomocą do funkcji
+
+```{r}
+rm(out_detect_sigma, example_data)
+```
+
+```{r}
+roxygen2::roxygenize()
+```
+
+Tymczasowo zainstaluj i załaduj pakiet outlieR
+
+```{r}
+devtools::install()
+```
+
+```{r}
+library(outlieR)
+```
+
+```{r}
+?out_detect_sigma
+```
+
+Załaduj zbiór example_data z wczytanego pakietu
+
+```{r}
+data("example_data")
+head(example_data)
+```
+
+Wyświetl samouczek (vignette) do pakietu dplyr
+
+```{r}
+browseVignettes("dplyr")
+```
+
+
+Dodaj samouczek do budowanego pakietu
+
+```{r}
+usethis::use_vignette("out_detect")
+```
+
+Przygotuj testy jednostkowe
+
+```{r}
+usethis::use_testthat()
+```
+
+```{r}
+usethis::use_test("out_detect_sigma")
+```
+
+
+Sprawdź poprawność pakietu
+
+```{r}
+devtools::check()
+```
+
+```{r}
+use_mit_license()
+```
+
+Zbuduj pakiet w postaci pliku tar.gz
+
+```{r}
+devtools::build()
+```

@@ -1,0 +1,40 @@
+---
+title: "out_detect"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{out_detect}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Wprowadzenie
+
+Ten dokument prezentuje działanie funkcji z pakietu `otlieR` służących do wykrywania wartości odstających
+
+```{r setup}
+library(outlieR)
+```
+
+Przykłady poniżej będą bazowały na zbiorze `example_data`.
+
+```{r}
+data("example_data")
+```
+
+## Wykrywanie wartości odstających za pomocą reguły k-sigm
+
+Wykrywanie wartości w kolumnie `chisq` z wykorzystaniem reguły 3-sigm
+
+```{r}
+out_detect_sigma(example_data$chisq)
+```
+
+
+
