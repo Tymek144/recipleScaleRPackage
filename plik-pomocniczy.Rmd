@@ -1,0 +1,5 @@
+---
+title: "plik-pomocniczy"
+output: html_document
+---
+
