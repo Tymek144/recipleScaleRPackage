@@ -1,4 +1,4 @@
-przepisy_przykladowe <- data.frame(
+przepisy_w_miarach_kuchennych <- data.frame(
   przepis = c(
     "ciasto_kakaowe", "ciasto_kakaowe", "ciasto_kakaowe", "ciasto_kakaowe", "ciasto_kakaowe",
     "owsianka_kakaowa", "owsianka_kakaowa", "owsianka_kakaowa", "owsianka_kakaowa", "owsianka_kakaowa"
@@ -23,4 +23,4 @@ przepisy_przykladowe <- data.frame(
 )
 
 # Zapisujemy dane do pakietu
-usethis::use_data(przepisy_przykladowe, overwrite = TRUE)
+usethis::use_data(przepisy_w_miarach_kuchennych, overwrite = TRUE)
