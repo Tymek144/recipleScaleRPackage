@@ -65,3 +65,13 @@ usethis::use_r("przelicz_na_gramy")
 devtools::document()
 ```
 
+```{r}
+#wstepny test
+przelicz_na_gramy("cukier", 3, "lyzka")
+```
+
+```{r}
+#Tworzenie przykladowego zbioru danych
+usethis::use_data_raw("przepisy_przykladowe")
+```
+
