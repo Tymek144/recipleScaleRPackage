@@ -1,0 +1,14 @@
+---
+title: "plik-pomocniczy"
+output: html_document
+---
+
+```{r}
+library(devtools)
+library(usethis)
+```
+
+```{r}
+
+```
+

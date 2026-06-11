@@ -1,16 +1,23 @@
 Package: recipleScaleR
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Skalowanie Przepisow Kulinarnych
 Version: 0.1.0
 Authors@R: c(
     person(
-      "Jane", "Doe",
-      email = "jane@example.com",
+      "Maria&Tymek", "Zimmer&Pomarzynski",
+      email = "88271@student.ue.poznan.pl",
       role = c("aut", "cre")
     )
   )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
-License: What license is it under?
+Description: Pakiet zawiera proste funkcje do skalowania przepisow kulinarnych oraz przeliczania podstawowych miar kuchennych.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Suggests: 
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+Config/testthat/edition: 3
