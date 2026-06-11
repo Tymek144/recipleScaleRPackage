@@ -94,3 +94,33 @@ usethis::use_r("dane")
 usethis::use_data_raw("przepisy_w_miarach_kuchennych")
 ```
 
+```{r}
+#Wstepne testowanie drugiego zbioru danych
+owsianka <- przepisy_w_miarach_kuchennych[
+  przepisy_w_miarach_kuchennych$przepis == "owsianka_kakaowa", 
+]
+owsianka
+wynik_owsianka <- do.call(
+  rbind,
+  mapply(
+    przelicz_na_gramy,
+    produkt = owsianka$skladnik,
+    ilosc = owsianka$ilosc,
+    jednostka = owsianka$jednostka,
+    SIMPLIFY = FALSE
+  )
+)
+
+wynik_owsianka
+```
+
+```{r}
+#Tworzenie folderu do testow
+usethis::use_testthat()
+```
+
+```{r}
+#Tworzenie pliku z testami
+usethis::use_test("funkcje")
+```
+

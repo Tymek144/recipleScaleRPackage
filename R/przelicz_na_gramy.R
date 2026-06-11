@@ -19,10 +19,47 @@
 przelicz_na_gramy <- function(produkt, ilosc, jednostka = "szklanka") {
 
   przeliczniki <- data.frame(
-    produkt = c("maka", "cukier", "maslo", "mleko", "olej"),
-    gram_na_szklanke = c(160, 220, 240, 250, 230),
-    gram_na_lyzke = c(10, 13, 15, 15, 14),
-    gram_na_lyzeczke = c(3, 4, 5, 5, 4.5)
+    produkt = c(
+      "maka",
+      "cukier",
+      "cukier_puder",
+      "maslo",
+      "mleko",
+      "olej",
+      "kakao",
+      "platki_owsiane"
+    ),
+    gram_na_szklanke = c(
+      160,
+      220,
+      170,
+      240,
+      250,
+      230,
+      120,
+      110
+    ),
+    gram_na_lyzke = c(
+      10,
+      13,
+      12,
+      15,
+      15,
+      14,
+      8,
+      10
+    ),
+    gram_na_lyzeczke = c(
+      3,
+      4,
+      4,
+      5,
+      5,
+      4.5,
+      3,
+      3
+    ),
+    stringsAsFactors = FALSE
   )
 
   produkt <- tolower(produkt)
