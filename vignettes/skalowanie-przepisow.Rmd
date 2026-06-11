@@ -1,0 +1,151 @@
+---
+title: "Skalowanie przepisów w pakiecie recipleScaleR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Skalowanie przepisów w pakiecie recipleScaleR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Wprowadzenie
+
+Pakiet recipleScaleR służy do prostego skalowania przepisów kulinarnych oraz przeliczania podstawowych miar kuchennych.
+
+Może być przydatny wtedy, gdy użytkownik chce:
+
+- przygotować przepis na inną liczbę porcji,
+- przeliczyć jednostki na szklanki, łyżki lub łyżeczki,
+- przeliczyć miary kuchenne na jednostki
+
+# Wczytanie pakietu
+
+{r}
+library(recipleScaleR)
+
+# Przykładowe dane
+
+W pakiecie znajdują się dwa przykładowe zbiory danych:
+
+- przepisy_przykladowe — dane używane do funkcji skaluj_przepis() i przelicz_miare(),
+- przepisy_w_miarach_kuchennych — dane używane do funkcji przelicz_na_gramy().
+
+# Wczytanie pakietu
+
+{r}
+library(recipleScaleR)
+
+# Zbiór danych: przepisy_przykladowe
+
+Pierwszy zbiór danych zawiera przykładowe przepisy z ilościami składników zapisanymi głównie w gramach lub mililitrach.
+
+{r}
+przepisy_przykladowe
+
+Sprawdzamy, jakie przepisy znajdują się w tym zbiorze.
+
+{r}
+unique(przepisy_przykladowe$przepis)
+
+# Skalowanie przepisu
+
+Funkcja skaluj_przepis() pozwala przeliczyć ilości składników na inną liczbę porcji.
+
+Wybieramy jeden przepis ze zbioru przepisy_przykladowe.
+
+{r}
+przepis <- przepisy_przykladowe[
+  przepisy_przykladowe$przepis == unique(przepisy_przykladowe$przepis)[1],
+]
+
+przepis
+
+Skalujemy przepis z 4 porcji na 8 porcji.
+
+{r}
+skaluj_przepis(
+  dane = przepis,
+  porcje_bazowe = 4,
+  porcje_docelowe = 8
+)
+
+# Przeliczanie gramów na miary kuchenne
+
+Funkcja przelicz_miare() przelicza gramy na wybraną miarę kuchenną, np. szklanki, łyżki albo łyżeczki.
+
+{r}
+przelicz_miare("maka", 320, "szklanka")
+
+Oznacza to, że 320 gramów mąki to około 2 szklanki.
+
+{r}
+przelicz_miare("cukier", 26, "lyzka")
+
+Oznacza to, że 26 gramów cukru to około 2 łyżki.
+
+# Zbiór danych: przepisy_w_miarach_kuchennych
+
+Drugi zbiór danych zawiera przepisy zapisane w miarach kuchennych, takich jak szklanki, łyżki i łyżeczki.
+
+{r}
+przepisy_w_miarach_kuchennych
+
+Ten zbiór danych jest szczególnie przydatny do funkcji przelicz_na_gramy().
+
+Sprawdzamy, jakie przepisy znajdują się w tym zbiorze.
+
+{r}
+unique(przepisy_w_miarach_kuchennych$przepis)
+
+# Przeliczanie miar kuchennych na gramy
+
+Funkcja przelicz_na_gramy() działa odwrotnie niż przelicz_miare().
+
+Przykład:
+
+{r}
+przelicz_na_gramy("maka", 2, "szklanka")
+
+{r}
+przelicz_na_gramy("kakao", 3, "lyzka")
+
+# Przeliczenie całego przepisu na gramy
+
+Wybieramy przepis na owsiankę kakaową ze zbioru przepisy_w_miarach_kuchennych.
+
+{r}
+owsianka <- przepisy_w_miarach_kuchennych[
+  przepisy_w_miarach_kuchennych$przepis == "owsianka_kakaowa",
+]
+
+owsianka
+
+Następnie przeliczamy wszystkie składniki owsianki na gramy.
+
+{r}
+wynik_owsianka <- do.call(
+  rbind,
+  mapply(
+    przelicz_na_gramy,
+    produkt = owsianka$skladnik,
+    ilosc = owsianka$ilosc,
+    jednostka = owsianka$jednostka,
+    SIMPLIFY = FALSE
+  )
+)
+
+wynik_owsianka
+
+# Podsumowanie
+
+Pakiet recipleScaleR zawiera trzy funkcje i dwa przykładowe zbiory danych.
+
+Funkcje:
+
+- skaluj_przepis() — zmienia ilości składników proporcjonalnie do liczby porcji,
+- przelicz_miare() — przelicza gramy na miary kuchenne,
+- przelicz_na_gramy() — przelicza miary kuchenne na gramy.
+
+Zbiory danych:
+
+- przepisy_przykladowe — przykładowe przepisy do skalowania i przeliczania gramów na miary kuchenne,
+- przepisy_w_miarach_kuchennych — przykładowe przepisy zapisane w szklankach, łyżkach i łyżeczkach.

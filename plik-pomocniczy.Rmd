@@ -125,6 +125,20 @@ usethis::use_test("funkcje")
 ```
 
 ```{r}
+#Testowanie testow
 devtools::test()
+```
+
+```{r}
+#Tworzenie vinetki
+usethis::use_vignette("skalowanie-przepisow")
+```
+
+```{r}
+devtools::build_vignettes()
+```
+
+```{r}
+devtools::check()
 ```
 
