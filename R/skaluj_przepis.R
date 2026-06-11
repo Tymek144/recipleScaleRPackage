@@ -1,17 +1,17 @@
 #' Przeliczanie liczby porcji
 #'
-#' Funkcja przelicza ilość składników z przepisu bazowego na podaną liczbę porcji,
-#' np. przepis na 4 porcje, a użytkownik możę przeliczyć na
-#' 8 porcji, dzięki funkcji, która podwoi ilość każdego składnika.
+#' Funkcja przelicza ilosc składnikow z przepisu bazowego na podaną liczbę porcji,
+#' np. przepis na 4 porcje, a użytkownik możę przeliczyc na
+#' 8 porcji, dzieki funkcji, która podwoi ilosc kazdego skladnika.
 #'
-#' Dane wejściowe powinny być ramką danych zawierającą kolumnę
-#' ilosc, w której znajdują się ilości składników.
+#' Dane wejsciowe powinny byc ramka danych zawierajaca kolumne
+#' ilosc, w ktorej znajduja sie ilosci skladnikow.
 #'
-#' @param dane Ramka danych ze składnikami przepisu.
+#' @param dane Ramka danych ze skladnikami przepisu.
 #' @param porcje_bazowe Liczba porcji w przepisie bazowym.
-#' @param porcje_docelowe Liczba porcji, którą chcemy otrzymać.
+#' @param porcje_docelowe Liczba porcji, którą chcemy otrzymac.
 #'
-#' @return Ramka danych z dodatkową kolumną ilosc_po_przeliczeniu.
+#' @return Ramka danych z dodatkowa kolumna ilosc_po_przeliczeniu.
 #'
 #' @examples
 #' przepis <- data.frame(
