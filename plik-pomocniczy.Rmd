@@ -9,6 +9,11 @@ library(usethis)
 ```
 
 ```{r}
+#Utworzono plik z licencja
+usethis::use_mit_license()
+```
 
+```{r}
+usethis::use_r("skaluj_przepis")
 ```
 
