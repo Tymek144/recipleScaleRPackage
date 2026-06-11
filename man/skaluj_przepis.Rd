@@ -7,23 +7,23 @@
 skaluj_przepis(dane, porcje_bazowe, porcje_docelowe)
 }
 \arguments{
-\item{dane}{Ramka danych ze składnikami przepisu.}
+\item{dane}{Ramka danych ze skladnikami przepisu.}
 
 \item{porcje_bazowe}{Liczba porcji w przepisie bazowym.}
 
-\item{porcje_docelowe}{Liczba porcji, którą chcemy otrzymać.}
+\item{porcje_docelowe}{Liczba porcji, którą chcemy otrzymac.}
 }
 \value{
-Ramka danych z dodatkową kolumną ilosc_po_przeliczeniu.
+Ramka danych z dodatkowa kolumna ilosc_po_przeliczeniu.
 }
 \description{
-Funkcja przelicza ilość składników z przepisu bazowego na podaną liczbę porcji,
-np. przepis na 4 porcje, a użytkownik możę przeliczyć na
-8 porcji, dzięki funkcji, która podwoi ilość każdego składnika.
+Funkcja przelicza ilosc składnikow z przepisu bazowego na podaną liczbę porcji,
+np. przepis na 4 porcje, a użytkownik możę przeliczyc na
+8 porcji, dzieki funkcji, która podwoi ilosc kazdego skladnika.
 }
 \details{
-Dane wejściowe powinny być ramką danych zawierającą kolumnę
-ilosc, w której znajdują się ilości składników.
+Dane wejsciowe powinny byc ramka danych zawierajaca kolumne
+ilosc, w ktorej znajduja sie ilosci skladnikow.
 }
 \examples{
 przepis <- data.frame(
