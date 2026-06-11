@@ -139,12 +139,6 @@ devtools::build_vignettes()
 ```
 
 ```{r}
-dir.create("inst", showWarnings = FALSE)
-
-file.rename(
-  "plik-pomocniczy.Rmd",
-  "inst/plik-pomocniczy.Rmd"
-)
 devtools::check()
 ```
 
