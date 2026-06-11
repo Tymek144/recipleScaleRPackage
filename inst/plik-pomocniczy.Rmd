@@ -141,4 +141,7 @@ devtools::build_vignettes()
 ```{r}
 devtools::check()
 ```
+```{r}
+devtools::build()
+```
 
