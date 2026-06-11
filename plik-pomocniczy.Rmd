@@ -17,3 +17,17 @@ usethis::use_mit_license()
 usethis::use_r("skaluj_przepis")
 ```
 
+```{r}
+devtools::load_all()
+```
+
+```{r}
+przepis <- data.frame(
+  skladnik = c("maka", "cukier", "jajka"),
+  ilosc = c(300, 100, 2),
+  jednostka = c("g", "g", "szt.")
+)
+
+skaluj_przepis(przepis, porcje_bazowe = 4, porcje_docelowe = 8)
+```
+
