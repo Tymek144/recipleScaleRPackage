@@ -52,3 +52,16 @@ devtools::load_all()
 przelicz_miare("maka", 350, "szklanka")
 ```
 
+```{r}
+devtools::document()
+```
+
+```{r}
+#Tworzenie trzeciej funkcji
+usethis::use_r("przelicz_na_gramy")
+```
+
+```{r}
+devtools::document()
+```
+
