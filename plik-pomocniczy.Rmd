@@ -75,3 +75,22 @@ przelicz_na_gramy("cukier", 3, "lyzka")
 usethis::use_data_raw("przepisy_przykladowe")
 ```
 
+```{r}
+#Wstepny test zbioru danych
+skaluj_przepis(
+  przepisy_przykladowe[przepisy_przykladowe$przepis == "naleśniki", ],
+  porcje_bazowe = 4,
+  porcje_docelowe = 5
+)
+```
+
+```{r}
+#Tworzenie helpa dla danych
+usethis::use_r("dane")
+```
+
+```{r}
+#Tworzenie drugiego przykladowego zbioru danych
+usethis::use_data_raw("przepisy_w_miarach_kuchennych")
+```
+
